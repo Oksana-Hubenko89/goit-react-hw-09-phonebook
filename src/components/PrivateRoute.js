@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Redirect,useLocation } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { authSelectors } from '../redux/auth';
 
@@ -8,18 +8,18 @@ import { authSelectors } from '../redux/auth';
  * - В противном случае рендерит Redirect на /login
  */
 export default function PrivateRoute({
-     redirectTo,
+  redirectTo,
   children,
   ...routeProps
 }) {
-  
-  const isAuthenticated = useSelector(authSelectors.getIsAuthenticated);
-  const location = useLocation();
+  const token = useSelector(authSelectors.getToken);
+  //const isAuthenticated = useSelector(authSelectors.getIsAuthenticated);
+ // const location = useLocation();
   
   return (
    
      <Route
-      {...routeProps}> {isAuthenticated ? (children): <Redirect to={redirectTo} />
+      {...routeProps}> {token ? (children): <Redirect to={redirectTo} />
       }
     </Route>
   );

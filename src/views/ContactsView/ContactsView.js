@@ -12,9 +12,9 @@ export default function ContactsView() {
   
   const dispatch = useDispatch();
   const contacts = useSelector(contactsSelectors.getTotalContactCount);
-  const isloadingContacts = useSelector(contactsSelectors.getLoadingContact);
-  const [, setError] = useState(false);
-  const [message, ] = useState('');
+  //const isloadingContacts = useSelector(contactsSelectors.getLoadingContact);
+  const [error, setError] = useState(false);
+  const [message,setMessage ] = useState('');
    
   useEffect(() => {
     dispatch(contactsOperations.fetchContacts());
@@ -37,7 +37,7 @@ export default function ContactsView() {
           <Filter /> 
           </CSSTransition>
           </form>
-        {isloadingContacts && <p>Загружаем...</p>}
+        {/* {isloadingContacts && <p>Загружаем...</p>} */}
           <ContactList /> 
           </>  
     ) 

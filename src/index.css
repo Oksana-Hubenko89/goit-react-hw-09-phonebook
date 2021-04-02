@@ -20,7 +20,7 @@ body {
   background-color:blanchedalmond;
    background: url(images/fone.jpg); 
    background-repeat:no-repeat;
-   background-size: cover;
+   background-size:100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

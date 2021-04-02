@@ -1,17 +1,15 @@
 import React, { useState} from 'react';
 import styles from './LoginView.module.css';
-import { useSelector,useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { authOperations } from '../../redux/auth';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import s from '../../components/Button/Button.module.css'
-import { authSelectors } from '../../redux/auth';
+
 
 export default function LoginView() {
     const dispatch = useDispatch();
        
-    const isLoadingAuth = useSelector(authSelectors.getLoadingAuth);
-   
     const [email, setEmail] = useState('');
 
     const handleChangeEmail = ({target:{value}}) => {
@@ -66,7 +64,6 @@ export default function LoginView() {
                             onChange={handleChangePassword}/>
                     </label>
                     <button className={s.Button} type="submit" >Войти</button>
-                     {isLoadingAuth && <p>Загружаем...</p>}
                     </form>
             </div>
         );

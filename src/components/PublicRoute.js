@@ -17,7 +17,7 @@ export default function PrivateRoute({
   return (
     <Route
       {...routeProps}>
-      {isAuthenticated && routeProps.restricted ? <Redirect to={!isAuthenticated?path:redirectTo} /> : (children)
+      {isAuthenticated && routeProps.restricted ? <Redirect to={redirectTo} /> : (children)
       }
     </Route>
   );

@@ -2,15 +2,16 @@ import { combineReducers } from "redux";
 import {createReducer} from '@reduxjs/toolkit';
 import actions from './contacts-actions';
 
-const { fetchContactsRequest,
+const {
+    //fetchContactsRequest,
     fetchContactsSuccess,
-    fetchContactsError,
-    addContactRequest,
+    //fetchContactsError,
+    //addContactRequest,
     addContactSuccess,
-    addContactError,
-    deleteContactRequest,
+    //addContactError,
+    //deleteContactRequest,
     deleteContactSuccess,
-    deleteContactError,
+    //deleteContactError,
     changeFilter } = actions;
 
 const items = createReducer([], {
@@ -26,7 +27,7 @@ const filter=createReducer('', {
     (_,{payload})=>payload,
 });
  
-// const loadingContact = createReducer(false, {
+// const loading = createReducer(false, {
 //     [addContactRequest]: () => true,
 //     [addContactSuccess]: () => false,
 //     [addContactError]: () => false,
@@ -42,7 +43,9 @@ const filter=createReducer('', {
 
 export default combineReducers ({
     items,
-    filter
+    filter,
+    //loading,
+   // error,
   
 });
 

@@ -14,29 +14,31 @@ const { fetchContactsRequest,
     deleteContactError
 } = actions;
 
-const CancelToken = axios.CancelToken;
+// const CancelToken = axios.CancelToken;
 
-const source = CancelToken.source();
+// const source = CancelToken.source();
 
-const token = {
-  set(token) {
-    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-  },
-  unset() {
-    axios.defaults.headers.common.Authorization = '';
-  },
-};
+// const token = {
+//   set(token) {
+//     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+//   },
+//   unset() {
+//     axios.defaults.headers.common.Authorization = '';
+//   },
+// };
 
 const fetchContacts = () => async dispatch => {
     dispatch(fetchContactsRequest());
 
     try {
-        const { data } = await axios.get('/contacts',{cancelToken: source.token});
+        const { data } = await axios.get('/contacts');
         dispatch(fetchContactsSuccess(data));
-        token.set(data.token);
-    } catch (error) {
-       dispatch(fetchContactsError(error.message));
         
+    } catch (error) {
+        // const { statusText, status, data } = error.response;
+        // const errorMsg = `${status} ${statusText} :${data.message}`;
+        dispatch(fetchContactsError(error.message));
+        // return toast.error(errorMsg);
     }
 };
 

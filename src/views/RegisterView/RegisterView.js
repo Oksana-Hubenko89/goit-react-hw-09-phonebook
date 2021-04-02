@@ -4,7 +4,7 @@ import { useSelector,useDispatch } from 'react-redux';
 import { authOperations } from '../../redux/auth';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { authSelectors } from '../../redux/auth';
+//import { authSelectors } from '../../redux/auth';
 
 export default function RegisterView() {
 
@@ -12,8 +12,6 @@ export default function RegisterView() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const isLoadingAuth = useSelector(authSelectors.getLoadingAuth);
-
     const handleChangeName = ({target:{value}}) => {
     
      setName(value );
@@ -94,7 +92,7 @@ export default function RegisterView() {
                         <div >
                     <button className={style.Button} type="submit" >Зарегестрироваться</button>
                         </div>
-                        {isLoadingAuth && <p>Загружаем...</p>}
+                        
                     </form>
                    </div>
             </div>

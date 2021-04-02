@@ -3,9 +3,9 @@ import authActions from './auth-actions';
 
   
 axios.defaults.baseURL = 'https://goit-phonebook-api.herokuapp.com';
-const CancelToken = axios.CancelToken;
-const source = CancelToken.source();
-
+// const CancelToken = axios.CancelToken;
+// const source = CancelToken.source();
+// ,{cancelToken: source.token}
 const token = {
   set(token) {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -23,6 +23,7 @@ const register = credentials => async dispatch => {
     const response = await axios.post('/users/signup', credentials);
 
     token.set(response.data.token);
+
     dispatch(authActions.registerSuccess(response.data));
   } catch (error) {
     dispatch(authActions.registerError(error.message));
@@ -34,9 +35,9 @@ const logIn = credentials => async dispatch => {
   dispatch(authActions.loginRequest());
 
   try {
-    const {data} = await axios.post('/users/login', credentials,{cancelToken: source.token});
+    const {data} = await axios.post('/users/login', credentials);
 
-   
+    token.set(data.token);
     dispatch(authActions.loginSuccess(data));
   } catch (error) {
    
