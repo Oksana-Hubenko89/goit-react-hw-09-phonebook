@@ -1,0 +1,48 @@
+
+html {
+  box-sizing: border-box;
+  width: 100vw;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  color: #212121;
+  background-color:blanchedalmond;
+   background: url(images/fone.jpg); 
+   background-repeat:no-repeat;
+   background-size: cover;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+a,ul {
+    margin:0;
+    padding:0;
+    display: block;
+    text-decoration: none;
+    padding: 12px;
+    font-weight: 700;
+    color: #2A363B;
+}
+
+form {
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 500px;
+}
